@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="MainModule">
+    <head>
+        <title>
+            Contact List App
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="container" ng-controller="AppCtrl">
+            <h3>Contact List</h3>
+            <div id="notice"></div>
+            <table class="table ng-cloak">
+                <thead>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Number</th>
+                    <th>Action</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input class="form-control" ng-model="contact.name" /></td>
+                        <td><input class="form-control" ng-model="contact.email" /></td>
+                        <td><input class="form-control" ng-model="contact.phone" /></td>
+                        <td><button class="form-controller btn-primary" ng-click="addContact()">Add Contact</td>
+                        <td></td>
+                    </tr>
+                    <tr ng-repeat="person in people">
+                        <td><input class="disabled" ng-model="person.name"></td>
+                        <td><input class="disabled" ng-model="person.email"></td>
+                        <td><input class="disabled" ng-model="person.phone"></td>
+                        <td><button class="btn-danger" ng-click="removeContact(person._id)">Remove</button></td>
+                        <td><button class="btn-warning" ng-click="updateContact(person)">Update</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+        <script type="text/javascript" src="controllers/controller.js"></script>
+    </body>
+</html>
